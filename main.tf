@@ -4,17 +4,12 @@ provider "aws" {
   
 }
 
-resource "random_id" "bucket_suffix" { # for testing , to fix the issue of running actions more than one time
-  byte_length = 4
-}
-
 resource "aws_s3_bucket" "assign_bucket" {
 
-    bucket = "assignement-bucket-fadi7-${random_id.bucket_suffix.hex}" # added random bucket name since I had issues on the second run of the Github actions . 
-                                        # so this is a quick fix by using another bucket name . for test purposes
+    bucket = "assignement-bucket-fadi7-2"
     
     tags = {
-      Name = "assignement-bucket-fadi7-${random_id.bucket_suffix.hex}"
+      Name = "assignement-bucket-fadi7-2"
     }
 }
 
@@ -67,7 +62,7 @@ resource "aws_iam_role" "assign_iam" {
   })
 
   tags = {
-    Name = "LambdaAssignmentRole-${random_id.bucket_suffix.hex}"
+    Name = "LambdaAssignmentRole"
   }
 }
   
@@ -76,7 +71,7 @@ resource "aws_iam_role" "assign_iam" {
 
     #Terraform + AWS DOCS
 
-  name = "lambda_s3_policy-${random_id.bucket_suffix.hex}"
+  name = "lambda_s3_policy"
   
 
   policy = jsonencode({
@@ -94,8 +89,8 @@ resource "aws_iam_role" "assign_iam" {
 
         #For least-privilege access only to my assignement bucket!!
         "Resource": [
-            "arn:aws:s3:::assignement-bucket-fadi7-${random_id.bucket_suffix.hex}",
-            "arn:aws:s3:::assignement-bucket-fadi7-${random_id.bucket_suffix.hex}/*"
+            "arn:aws:s3:::assignement-bucket-fadi7-2",
+            "arn:aws:s3:::assignement-bucket-fadi7-2/*"
             ]
       },
 
@@ -133,7 +128,7 @@ resource "aws_iam_role_policy_attachment" "test_attach" {
     
   resource "aws_lambda_function" "s3_lambda" {
 
-    function_name = "list-s3-files"
+    function_name = "list-s3-files-2"
     filename      = "lambda_function_payload.zip"
     role = aws_iam_role.assign_iam.arn
     handler = "lambda_function.lambda_handler" # this is so AWS "knows" that file name = lambda_function and Function inside = lambda_handler()
