@@ -31,13 +31,19 @@ jobs :
 
             - name: Import existing AWS resources
               run: |
-              terraform import aws_s3_bucket.assign_bucket assignement-bucket-fadi7 || true
-              terraform import aws_iam_policy.lambda_s3_policy arn:aws:iam::992824239500:policy/lambda_s3_policy || true
-              terraform import aws_iam_role.assign_iam assign_iam || true
-              terraform import aws_iam_role_policy_attachment.test_attach assign_iam/arn:aws:iam::992824239500:policy/lambda_s3_policy || true
-              terraform import aws_lambda_function.s3_lambda list-s3-files || true
-              terraform import aws_lambda_permission.allow_s3 list-s3-files/AllowExecutionFromS3 || true
-              terraform import aws_sns_topic.assign_topic arn:aws:sns:eu-central-1:992824239500:user-notifications || true
+                terraform import aws_s3_bucket.assign_bucket assignement-bucket-fadi7 || true
+                terraform import aws_iam_policy.lambda_s3_policy arn:aws:iam::992824239500:policy/lambda_s3_policy || true
+                terraform import aws_iam_role.assign_iam assign_iam || true
+                terraform import aws_iam_role_policy_attachment.test_attach assign_iam/arn:aws:iam::992824239500:policy/lambda_s3_policy || true
+                terraform import aws_lambda_function.s3_lambda list-s3-files || true
+                terraform import aws_lambda_permission.allow_s3 list-s3-files/AllowExecutionFromS3 || true
+                terraform import aws_sns_topic.assign_topic arn:aws:sns:eu-central-1:992824239500:user-notifications || true
 
             - name: Terraform Apply
-              run: terraform apply -auto-approve                
+              run: terraform apply -auto-approve
+
+            - name: Sleep before destroy (for test)
+              run: sleep 60    
+
+            - name: Terraform Destroy # For Testing purposes only . will be removed !
+              run:  terraform destroy -auto-approve 
