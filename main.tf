@@ -72,7 +72,7 @@ resource "aws_iam_role" "assign_iam" {
 }
   
 
-  resource "aws_iam_policy" "lambda_s3_policy-${random_id.bucket_suffix.hex}" {
+  resource "aws_iam_policy" "lambda_s3_policy" {
 
     #Terraform + AWS DOCS
 
@@ -127,7 +127,7 @@ resource "aws_sns_topic_subscription" "user_updates" {
 
 resource "aws_iam_role_policy_attachment" "test_attach" {
   role       = aws_iam_role.assign_iam.name
-  policy_arn = aws_iam_policy.lambda_s3_policy-${random_id.bucket_suffix.hex}.arn
+  policy_arn = aws_iam_policy.lambda_s3_policy.arn
 }
 
     
