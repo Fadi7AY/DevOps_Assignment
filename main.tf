@@ -4,12 +4,17 @@ provider "aws" {
   
 }
 
+resource "random_id" "bucket_suffix" { # for testing , to fix the issue of running actions more than one time
+  byte_length = 4
+}
+
 resource "aws_s3_bucket" "assign_bucket" {
 
-    bucket = "assignement-bucket-fadi7"
+    bucket = "assignement-bucket-fadi7-${random_id.bucket_suffix.hex}" # added random bucket name since I had issues on the second run of the Github actions . 
+                                        # so this is a quick fix by using another bucket name . for test purposes
     
     tags = {
-      Name = "assignement-bucket-fadi7"
+      Name = "assignement-bucket-fadi7-${random_id.bucket_suffix.hex}"
     }
 }
 
@@ -62,16 +67,16 @@ resource "aws_iam_role" "assign_iam" {
   })
 
   tags = {
-    Name = "LambdaAssignmentRole"
+    Name = "LambdaAssignmentRole-${random_id.bucket_suffix.hex}"
   }
 }
   
 
-  resource "aws_iam_policy" "lambda_s3_policy" {
+  resource "aws_iam_policy" "lambda_s3_policy-${random_id.bucket_suffix.hex}" {
 
     #Terraform + AWS DOCS
 
-  name = "lambda_s3_policy"
+  name = "lambda_s3_policy-${random_id.bucket_suffix.hex}"
   
 
   policy = jsonencode({
@@ -89,8 +94,8 @@ resource "aws_iam_role" "assign_iam" {
 
         #For least-privilege access only to my assignement bucket!!
         "Resource": [
-            "arn:aws:s3:::assignement-bucket-fadi7",
-            "arn:aws:s3:::assignement-bucket-fadi7/*"
+            "arn:aws:s3:::assignement-bucket-fadi7-${random_id.bucket_suffix.hex}",
+            "arn:aws:s3:::assignement-bucket-fadi7-${random_id.bucket_suffix.hex}/*"
             ]
       },
 
@@ -122,7 +127,7 @@ resource "aws_sns_topic_subscription" "user_updates" {
 
 resource "aws_iam_role_policy_attachment" "test_attach" {
   role       = aws_iam_role.assign_iam.name
-  policy_arn = aws_iam_policy.lambda_s3_policy.arn
+  policy_arn = aws_iam_policy.lambda_s3_policy-${random_id.bucket_suffix.hex}.arn
 }
 
     
