@@ -70,8 +70,8 @@ resource "aws_iam_policy" "lambda_s3_policy" {
 
         #For least-privilege access only to my assignement bucket!!
         "Resource": [
-            "arn:aws:s3:::assignement-bucket-fadi7-4",
-            "arn:aws:s3:::assignement-bucket-fadi7-4/*"
+            "${aws_s3_bucket.assign_bucket.arn}",
+            "${aws_s3_bucket.assign_bucket.arn}/*"
         ]
       },
 
