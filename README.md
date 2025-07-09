@@ -17,16 +17,38 @@ This project demonstrates a fully automated serverless application deployed usin
 
 ```
 .
-├── lambda_function.py               
-├── lambda_function_payload.zip     
-├── lambda_test.sh                  
-├── main.tf                         
-├── sample_files/                   
-├── .github/workflows/deploy.yml   
-├── response.json # Output from manual Lambda invoke
-└── README.md                       
+├── README.md
+├── backend.tf
+├── lambda_function.py
+├── lambda_function_payload.zip
+├── lambda_test.sh
+├── main.tf
+├── requirements
+├── response.json
+├── sample_files/
+│   ├── dummy_test
+│   .
+│   .
+│   └── test files
+├── terraform.tfstate
+└── terraform.tfstate.backup                
+```
+## 📋 Requirements
+
+Make sure to install Python dependencies for the Lambda function and manual test:
+
+### 1. Create and activate a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 ```
 
+### 2. Install boto3 (for both local test and Lambda packaging)
+
+```bash
+pip install boto3
+```
 ---
 
 ## 🚀 Deployment Instructions
