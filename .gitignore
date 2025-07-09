@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+terraform.tfstate.1752012087.backup
+terraform.tfstate.1752012087.
+*.tfstate.backup
+.tfstate
+*.tfstate.*
+crash.log
+versions.json
+terraform.*
