@@ -1,4 +1,5 @@
 .venv/
+.venv
 __pycache__/
 terraform.tfstate
 terraform.tfstate.backup
