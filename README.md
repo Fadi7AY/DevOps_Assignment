@@ -17,20 +17,19 @@ This project demonstrates a fully automated serverless application deployed usin
 
 ```
 .
-├── IaC.jpg
-├── README.md
+│
 ├── lambda
 │   ├── init_state_bucket.sh
 │   ├── lambda_function_payload.zip
 │   └── lambda_test.sh
-├── requirements
-├── response.json
+│ 
 ├── sample_files
 │   ├── dummy_test
 │   ├── git_test_after_rearrange
 │   .
 │   .
 │   └── testtetst
+│ 
 ├── terraform
 │   ├── backend.tf
 │   ├── iam.tf
@@ -40,6 +39,11 @@ This project demonstrates a fully automated serverless application deployed usin
 │   ├── provider.tf
 │   ├── s3.tf
 │   └── sns.tf
+│ 
+├── requirements
+├── response.json
+├── IaC.jpg
+├── README.md
 ├── terraform.tfstate
 └── terraform.tfstate.backup              
 ```
