@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "s3_lambda" {
 
   function_name = "list-s3-files-4"
-  filename      = "lambda_function_payload.zip"
+  filename      = "${path.module}/../lambda/lambda_function_payload.zip"
   role          = aws_iam_role.assign_iam.arn
   handler       = "lambda_function.lambda_handler" # this is so AWS "knows" that file name = lambda_function and Function inside = lambda_handler()
   runtime       = "python3.12"

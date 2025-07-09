@@ -12,7 +12,7 @@ resource "aws_s3_object" "bucket_objects" {
 
   bucket = aws_s3_bucket.assign_bucket.bucket
   key    = each.value
-  source = "${path.module}/sample_files/${each.value}"
+  source = "${path.module}/../sample_files/${each.value}"
 }
 
 resource "aws_s3_bucket_notification" "s3_trigger" {
