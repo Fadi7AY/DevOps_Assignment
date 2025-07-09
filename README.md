@@ -33,9 +33,10 @@ This project demonstrates a fully automated serverless application deployed usin
 ├── terraform.tfstate
 └── terraform.tfstate.backup                
 ```
-
+---
+## 🖼️ Project Architecture Diagram
 ![Architecture Diagram](https://raw.githubusercontent.com/Fadi7AY/DevOps_Assignment/remote_s3/IaC.jpg)
-
+---
 
 
 ## 📋 Requirements
