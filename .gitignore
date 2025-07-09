@@ -13,3 +13,4 @@ crash.log
 versions.json
 terraform.*
 response.json
+response.*
