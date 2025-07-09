@@ -19,26 +19,29 @@ This project demonstrates a fully automated serverless application deployed usin
 .
 ├── IaC.jpg
 ├── README.md
-├── backend.tf
-├── iam.tf
-├── init_state_bucket.sh
-├── lambda.tf
-├── lambda_function.py
-├── lambda_function_payload.zip
-├── lambda_test.sh
-├── locals.tf
-├── provider.tf
+├── lambda
+│   ├── init_state_bucket.sh
+│   ├── lambda_function_payload.zip
+│   └── lambda_test.sh
 ├── requirements
 ├── response.json
-├── s3.tf
 ├── sample_files
 │   ├── dummy_test
+│   ├── git_test_after_rearrange
 │   .
 │   .
-│   └── test files
-├── sns.tf
+│   └── testtetst
+├── terraform
+│   ├── backend.tf
+│   ├── iam.tf
+│   ├── lambda.tf
+│   ├── lambda_function.py
+│   ├── locals.tf
+│   ├── provider.tf
+│   ├── s3.tf
+│   └── sns.tf
 ├── terraform.tfstate
-└── terraform.tfstate.backup                
+└── terraform.tfstate.backup              
 ```
 ---
 ## 🖼️ Project Architecture Diagram
@@ -70,7 +73,7 @@ pip install boto3
 
 ```bash
 git clone https://github.com/Fadi7AY/DevOps_Assignment
-cd DevOps_Assignment
+cd DevOps_Assignment/terraform
 ```
 
 ### 2. Configure AWS Credentials
@@ -108,7 +111,7 @@ Otherwise, SNS notifications will not be delivered.
 Use the provided shell script to invoke the Lambda function:
 
 ```bash
-./lambda_test.sh
+./lambda/lambda_test.sh
 cat response.json
 ```
 
