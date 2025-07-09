@@ -33,6 +33,10 @@ This project demonstrates a fully automated serverless application deployed usin
 ├── terraform.tfstate
 └── terraform.tfstate.backup                
 ```
+```
+![Architecture Diagram](https://github.com/Fadi7AY/DevOps_Assignment/blob/remote_s3/IaC.jpg?raw=true)
+```
+
 ## 📋 Requirements
 
 Make sure to install Python dependencies for the Lambda function and manual test:
