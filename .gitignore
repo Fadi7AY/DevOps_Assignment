@@ -12,3 +12,4 @@ terraform.tfstate.1752012087.
 crash.log
 versions.json
 terraform.*
+response.json
