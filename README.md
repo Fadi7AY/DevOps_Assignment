@@ -17,19 +17,26 @@ This project demonstrates a fully automated serverless application deployed usin
 
 ```
 .
+├── IaC.jpg
 ├── README.md
 ├── backend.tf
+├── iam.tf
+├── init_state_bucket.sh
+├── lambda.tf
 ├── lambda_function.py
 ├── lambda_function_payload.zip
 ├── lambda_test.sh
-├── main.tf
+├── locals.tf
+├── provider.tf
 ├── requirements
 ├── response.json
-├── sample_files/
+├── s3.tf
+├── sample_files
 │   ├── dummy_test
 │   .
 │   .
 │   └── test files
+├── sns.tf
 ├── terraform.tfstate
 └── terraform.tfstate.backup                
 ```
