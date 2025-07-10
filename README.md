@@ -17,6 +17,7 @@ This project demonstrates a fully automated serverless application deployed usin
 
 ```
 .
+<<<<<<< HEAD
 ├── lambda_function.py               
 ├── lambda_function_payload.zip     
 ├── lambda_test.sh                  
@@ -27,6 +28,60 @@ This project demonstrates a fully automated serverless application deployed usin
 └── README.md                       
 ```
 
+=======
+│
+├── lambda
+│   ├── init_state_bucket.sh
+│   ├── lambda_function_payload.zip
+│   └── lambda_test.sh
+│ 
+├── sample_files
+│   ├── dummy_test
+│   ├── git_test_after_rearrange
+│   .
+│   .
+│   └── testtetst
+│ 
+├── terraform
+│   ├── backend.tf
+│   ├── iam.tf
+│   ├── lambda.tf
+│   ├── lambda_function.py
+│   ├── locals.tf
+│   ├── provider.tf
+│   ├── s3.tf
+│   └── sns.tf
+│ 
+├── requirements
+├── response.json
+├── IaC.jpg
+├── README.md
+├── terraform.tfstate
+└── terraform.tfstate.backup              
+```
+---
+## 🖼️ Project Architecture Diagram
+![Architecture Diagram](https://raw.githubusercontent.com/Fadi7AY/DevOps_Assignment/remote_s3/IaC.jpg)
+---
+
+
+## 📋 Requirements
+
+Make sure to install Python dependencies for the Lambda function and manual test:
+
+### 1. Create and activate a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+```
+
+### 2. Install boto3 (for both local test and Lambda packaging)
+
+```bash
+pip install boto3
+```
+>>>>>>> remote_s3
 ---
 
 ## 🚀 Deployment Instructions
@@ -35,7 +90,11 @@ This project demonstrates a fully automated serverless application deployed usin
 
 ```bash
 git clone https://github.com/Fadi7AY/DevOps_Assignment
+<<<<<<< HEAD
 cd DevOps_Assignment
+=======
+cd DevOps_Assignment/terraform
+>>>>>>> remote_s3
 ```
 
 ### 2. Configure AWS Credentials
@@ -73,7 +132,11 @@ Otherwise, SNS notifications will not be delivered.
 Use the provided shell script to invoke the Lambda function:
 
 ```bash
+<<<<<<< HEAD
 ./lambda_test.sh
+=======
+./lambda/lambda_test.sh
+>>>>>>> remote_s3
 cat response.json
 ```
 
