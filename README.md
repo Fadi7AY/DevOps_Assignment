@@ -11,7 +11,7 @@ This project demonstrates a fully automated serverless application deployed usin
   - Sends the file list via email through SNS
   - Can be triggered manually (CLI) or automatically (on S3 upload)
   
-  ### 📂 sample_files Folder
+### 📂 sample_files Folder
 
 This folder contains test files that are automatically uploaded to the S3 bucket during deployment.
 These files are later listed by the Lambda function and included in the email notification.
