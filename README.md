@@ -67,7 +67,7 @@ Make sure to install Python dependencies for the Lambda function and manual test
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 ```
-
+---
 ### 2. Install boto3 (for both local test and Lambda packaging)
 
 ```bash
@@ -92,14 +92,14 @@ Ensure your AWS credentials are configured either through:
 - Or by exporting them as environment variables in GitHub Actions:
   - `AWS_ACCESS_KEY_ID`
   - `AWS_SECRET_ACCESS_KEY`
-
+---
 ### 3. Deploy with Terraform Locally
 
 ```bash
 terraform init
 terraform apply
 ```
-
+---
 ### 4. Deploy with GitHub Actions (CI/CD)
 
 - Go to the **Actions** tab in your GitHub repo
@@ -112,7 +112,7 @@ The workflow in `.github/workflows/deploy.yml` automates the infrastructure depl
 - Initializes Terraform
 - Applies the infrastructure
 - Runs on manual trigger via `workflow_dispatch`
-
+---
 ### 5. Confirm Your Email
 
 ⚠️ **IMPORTANT:**  
