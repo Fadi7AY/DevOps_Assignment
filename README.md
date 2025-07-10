@@ -28,7 +28,7 @@ This project demonstrates a fully automated serverless application deployed usin
 │   ├── git_test_after_rearrange
 │   .
 │   .
-│   └── testtetst
+│   └── some test files
 │ 
 ├── terraform
 │   ├── backend.tf
@@ -43,9 +43,8 @@ This project demonstrates a fully automated serverless application deployed usin
 ├── requirements
 ├── response.json
 ├── IaC.jpg
-├── README.md
-├── terraform.tfstate
-└── terraform.tfstate.backup              
+└── README.md
+              
 ```
 ---
 ## 🖼️ Project Architecture Diagram
