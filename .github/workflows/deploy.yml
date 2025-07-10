@@ -28,7 +28,8 @@ jobs:
           aws-region: eu-central-1
 
       - name: Ensure backend S3 bucket exists or create it
-        run: ../lambda/init_state_bucket.sh
+        run: ../lambda/init_state_bucket.sh  # I can add a step that the labmda sends and email on each manual trigger of Github Actions ,
+                                             # but the point of the job is to deploy the infrastrucure 
 
       - name: Terraform Init
         run: terraform init 
