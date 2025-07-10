@@ -10,6 +10,11 @@ This project demonstrates a fully automated serverless application deployed usin
   - Lists objects in the S3 bucket
   - Sends the file list via email through SNS
   - Can be triggered manually (CLI) or automatically (on S3 upload)
+  
+  ### 📂 sample_files Folder
+
+This folder contains test files that are automatically uploaded to the S3 bucket during deployment.
+These files are later listed by the Lambda function and included in the email notification.
 
 ---
 
@@ -100,12 +105,19 @@ terraform apply
 - Go to the **Actions** tab in your GitHub repo
 - Select the workflow and click **Run workflow** to deploy infrastructure
 
+### ⚙️ GitHub Actions CI/CD Workflow
+
+The workflow in `.github/workflows/deploy.yml` automates the infrastructure deployment process:
+
+- Initializes Terraform
+- Applies the infrastructure
+- Runs on manual trigger via `workflow_dispatch`
+
 ### 5. Confirm Your Email
 
 ⚠️ **IMPORTANT:**  
-After the first deployment, you will receive a confirmation email from AWS SNS.  
-You **must click the confirmation link** to activate the email subscription.  
-Otherwise, SNS notifications will not be delivered.
+After your first deployment, AWS SNS will send a **confirmation email** to the address you specified.  
+You **must click the confirmation link** inside this email to start receiving notifications.
 
 ---
 
