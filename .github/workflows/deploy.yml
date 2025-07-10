@@ -27,6 +27,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
+      - name: Ensure backend S3 bucket exists or create it
+        run: ../lambda/init_state_bucket.sh
+
       - name: Terraform Init
         run: terraform init 
 
