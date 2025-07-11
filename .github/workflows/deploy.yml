@@ -38,9 +38,11 @@ jobs:
           terraform plan -detailed-exitcode
           code=$?
           if [ "$code" -eq 0 ]; then
-            echo "No infrastructure changes. Invoking Lambda..."
+            echo "No infrastructure changes. Invoking Lambda"
             ../lambda/lambda_test.sh
-
+          elif [ "$code" -eq 2 ]; then
+            echo "Changes detected. Lambda will be invoked via Terraform Apply."
+        
           fi
           
       - name: Terraform Apply
