@@ -34,7 +34,11 @@ jobs:
         run: terraform init 
 
       - name: Terraform Plan # I can Ignore it , but I use it for logs
-        run: terraform plan
+        run: | 
+          terraform plan -detailed-exitcode
+          if [ $? -eq 0] ;then 
+          ./lambda/lambda_test.sh
+          fi
 
       - name: Terraform Apply
         run: terraform apply -auto-approve 
