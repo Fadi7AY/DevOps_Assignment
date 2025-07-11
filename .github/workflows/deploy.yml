@@ -35,6 +35,7 @@ jobs:
 
       - name: Terraform Plan and Optional Lambda Invoke
         run: |
+          set +e
           terraform plan -detailed-exitcode 
           code=$?
           if [ "$code" -eq 0 ]; then
