@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 
 terraform plan -out=tfplan.out > plan_output.txt
 
