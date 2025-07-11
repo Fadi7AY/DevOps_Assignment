@@ -35,7 +35,7 @@ jobs:
 
       - name: Terraform Plan and Optional Lambda Invoke
         run: |
-          terraform plan -detailed-exitcode -out=tfplan.out
+          terraform plan -detailed-exitcode 
           code=$?
           if [ "$code" -eq 0 ]; then
             echo "No infrastructure changes. Invoking Lambda"
@@ -47,6 +47,7 @@ jobs:
             echo "Terraform plan failed with exit code $code"
             exit $code
           fi
+          echo "******* exit code is -$code- ***********"
           
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan.out
+        run: terraform apply -auto-approve 
