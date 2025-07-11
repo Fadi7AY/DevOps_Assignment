@@ -33,8 +33,14 @@ jobs:
       - name: Terraform Init
         run: terraform init 
 
-      - name: Terraform Plan # I can Ignore it , but I use it for logs
-        run: terraform plan 
+      - name: Terraform Plan and Optional Lambda Invoke
+        run: |
+          terraform plan -detailed-exitcode
+          code=$?
+          if [ "$code" -eq 0 ]; then
+            echo "No infrastructure changes. Invoking Lambda..."
+            ./../lambda_test.sh
+          fi
           
       - name: Terraform Apply
         run: terraform apply -auto-approve 
