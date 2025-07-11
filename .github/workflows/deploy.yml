@@ -39,7 +39,8 @@ jobs:
           code=$?
           if [ "$code" -eq 0 ]; then
             echo "No infrastructure changes. Invoking Lambda..."
-            ./../lambda_test.sh
+            ../lambda/lambda_test.sh
+
           fi
           
       - name: Terraform Apply
