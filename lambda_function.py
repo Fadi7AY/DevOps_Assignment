@@ -14,8 +14,9 @@ def lambda_handler(event, context):
     objects = response.get('Contents', [])
     
     file_names = []
-    for obj in objects:
-        file_names.append(obj['Key'])
+    if objects:
+        for obj in objects:
+            file_names.append(obj['Key'])
 
     message = f"Lambda executed.\nFound {len(file_names)} file(s) in bucket '{bucket_name}':\n" + "\n".join(file_names)
 
