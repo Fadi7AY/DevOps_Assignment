@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 terraform plan -out=tfplan.out > plan_output.txt
 
 if grep -qE 'No changes|No changes\. Infrastructure is up-to-date\.' plan_output.txt; then
