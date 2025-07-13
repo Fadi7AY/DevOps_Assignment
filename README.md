@@ -38,7 +38,6 @@ These files are later listed by the Lambda function and included in the email no
 │   ├── backend.tf
 │   ├── iam.tf
 │   ├── lambda.tf
-│   ├── lambda_function_payload.zip
 │   ├── lambda_function.py
 │   ├── locals.tf
 │   ├── provider.tf

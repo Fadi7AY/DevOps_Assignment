@@ -15,7 +15,7 @@ resource "aws_iam_role" "assign_iam" {
   })
 
   tags = {
-    Name = "LambdaAssignmentRoleV4"
+    Name = var.iam_role_name
   }
 }
 

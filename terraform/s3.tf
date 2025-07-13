@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "assign_bucket" {
 
-    bucket = "assignement-bucket-fadi7-4"
+    bucket = var.bucket_name
     
     tags = {
       Name = "assignement-bucket-fadi7-4"

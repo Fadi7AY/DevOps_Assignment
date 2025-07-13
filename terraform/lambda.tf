@@ -7,13 +7,13 @@ data "archive_file" "lambda_zip" {
 
 resource "aws_lambda_function" "s3_lambda" {
 
-  function_name = "list-s3-files-4"
+  function_name = var.lambda_function_name
   filename      = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
-  
+
   role          = aws_iam_role.assign_iam.arn
-  handler       = "lambda_function.lambda_handler" # this is so AWS "knows" that file name = lambda_function and Function inside = lambda_handler()
-  runtime       = "python3.12"
+  handler       = var.lambda_handler # this is so AWS "knows" that file name = lambda_function and Function inside = lambda_handler()
+  runtime       = var.lambda_runtime
 
   environment {
     variables = {
