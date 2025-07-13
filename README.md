@@ -126,7 +126,7 @@ You **must click the confirmation link** inside this email to start receiving no
 Use the provided shell script to invoke the Lambda function:
 
 ```bash
-./lambda/lambda_test.sh
+./scripts/lambda_test.sh
 cat response.json
 ```
 
