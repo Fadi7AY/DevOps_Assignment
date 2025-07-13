@@ -28,15 +28,15 @@ jobs:
           aws-region: eu-central-1
 
       - name: Ensure backend S3 bucket exists or create it
-        run: ../lambda/init_state_bucket.sh
+        run: ../scripts/init_state_bucket.sh
 
       - name: Terraform Init
         run: terraform init 
 
       # - name: Terraform Plan and Optional Lambda Invoke
-      #   run: ../lambda/plan_invoke.sh
+      #   run: ../scripts/plan_invoke.sh
           
       - name: Terraform Apply
         run: | 
           terraform apply -auto-approve
-          ../lambda/lambda_test.sh
+          ../scripts/lambda_test.sh
