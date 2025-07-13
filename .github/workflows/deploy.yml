@@ -33,8 +33,10 @@ jobs:
       - name: Terraform Init
         run: terraform init 
 
-      - name: Terraform Plan and Optional Lambda Invoke
-        run: ../lambda/plan_invoke.sh
+      # - name: Terraform Plan and Optional Lambda Invoke
+      #   run: ../lambda/plan_invoke.sh
           
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: | 
+          terraform apply -auto-approve
+          ../lambda/lambda_test.sh
