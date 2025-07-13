@@ -31,7 +31,7 @@ jobs:
         run: ../lambda/init_state_bucket.sh
 
       - name: Terraform Init
-        run: terraform init 
+        run: terraform init -reconfigure
 
       - name: Terraform Plan and Optional Lambda Invoke
         run: ../lambda/plan_invoke.sh
