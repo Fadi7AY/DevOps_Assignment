@@ -49,11 +49,6 @@ resource "aws_iam_policy" "lambda_s3_policy" {
         "Effect":"Allow",
         "Action":"sns:Publish",
         "Resource": "${aws_sns_topic.assign_topic.arn}"
-      },
-      {
-        Effect = "Allow",
-        Action = "sqs:ReceiveMessage",
-        Resource = aws_sqs_queue.s3_event_queue.arn
       }
     ]
   })
