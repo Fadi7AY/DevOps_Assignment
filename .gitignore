@@ -14,4 +14,4 @@ versions.json
 terraform.*
 response.json
 response.*
-
+*.zip
