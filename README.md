@@ -25,6 +25,7 @@ These files are later listed by the Lambda function and included in the email no
 │
 ├── scripts
 │   ├── init_state_bucket.sh
+│   ├── plan_invoke.sh
 │   └── lambda_test.sh
 │ 
 ├── sample_files
@@ -42,10 +43,10 @@ These files are later listed by the Lambda function and included in the email no
 │   ├── locals.tf
 │   ├── provider.tf
 │   ├── s3.tf
-│   └── sns.tf
+│   ├── sns.tf
+│   └── variables.tf
 │ 
 ├── requirements
-├── response.json
 ├── IaC.jpg
 └── README.md
               
