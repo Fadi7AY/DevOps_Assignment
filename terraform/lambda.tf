@@ -32,3 +32,4 @@ resource "aws_lambda_permission" "allow_s3" {
   principal     = "s3.amazonaws.com"
   source_arn    = aws_s3_bucket.assign_bucket.arn
 }
+# I removed the aws_s3_bucket_notification , that was related to this ( was invoking lambda at any file upload)
