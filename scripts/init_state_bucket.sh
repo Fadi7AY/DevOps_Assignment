@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUCKET_NAME="terraform-state-fadi7ay"
+BUCKET_NAME="terraform-state-fadi7ay11"
 REGION="eu-central-1"
 
 if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
