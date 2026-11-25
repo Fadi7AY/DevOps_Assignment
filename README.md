@@ -1,5 +1,17 @@
 # AWS Lambda S3 Notification 
 
+## At a glance
+
+```mermaid
+flowchart LR
+    N0["S3 objects"]
+    N1["Lambda · list files"]
+    N2["SNS topic"]
+    N3["Confirmed email subscriber"]
+    N0 --> N1 --> N2 --> N3
+```
+
+
 ## 📌 Project Overview
 
 This project demonstrates a fully automated serverless application deployed using **Terraform** and **GitHub Actions**. It includes:
@@ -140,6 +152,3 @@ cat response.json
 - **AWS S3** – Object storage
 - **AWS SNS** – Notification service
 - **AWS IAM** – Access control
-
-
-
